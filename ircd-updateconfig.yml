@@ -1,0 +1,12 @@
+---
+- hosts: ircdnodes
+  user: ircd
+  tasks:
+  - name: push new configs to all ircd nodes
+    action: shell cd ~/entropynet && svn up
+    notify:
+    - rehash ircds
+  handlers:
+    - name: rehash ircds
+      action: shell pkill -HUP ircd
+
