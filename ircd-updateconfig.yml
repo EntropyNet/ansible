@@ -8,5 +8,5 @@
     - rehash ircds
   handlers:
     - name: rehash ircds
-      action: shell pkill -HUP ircd
+      action: shell pkill -HUP -F ~/shadowircd/etc/ircd.pid
 
