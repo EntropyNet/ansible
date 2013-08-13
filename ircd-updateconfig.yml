@@ -1,6 +1,7 @@
 ---
 - hosts: ircdnodes
   user: ircd
+  gather_facts: no
   tasks:
   - name: push new configs to all ircd nodes
     action: shell cd ~/entropynet && svn up
