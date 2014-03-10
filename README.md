@@ -1,4 +1,4 @@
-entropynet-ansible
+ansible
 ==================
 
-Ansible playbooks and templates for EntropyNet
+Ansible playbooks and templates for EntropyValley
