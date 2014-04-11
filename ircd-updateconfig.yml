@@ -4,7 +4,7 @@
   gather_facts: no
   tasks:
   - name: push new configs to all ircd nodes
-    git: repo=engit:config dest=/home/ircd/entropyvalley/config/ update=yes
+    git: repo=engit:config dest=/home/ircd/entropyvalley/config/ version=entropyvalley-chary update=yes
     notify:
     - rehash ircds
   handlers:
