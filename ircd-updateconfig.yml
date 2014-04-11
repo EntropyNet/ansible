@@ -4,10 +4,10 @@
   gather_facts: no
   tasks:
   - name: push new configs to all ircd nodes
-    action: shell cd ~/entropyvalley/config && git pull
+    git: repo=git@foxiepa.ws:config dest=/home/ircd/entropyvalley/config/ update=yes
     notify:
     - rehash ircds
   handlers:
     - name: rehash ircds
-      action: shell pkill -HUP -F ~/ircd/etc/ircd.pid
+      shell: pkill -HUP -F ~/ircd/etc/ircd.pid
 
