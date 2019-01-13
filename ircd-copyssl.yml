@@ -11,8 +11,8 @@
       notify:
       - rehash ircds
     loop:
-      - { src: '/etc/ssl/localcerts/namecheap/entropynet.net-2019/irc.entropynet.net.crt', dest: '/home/ircd/ssl/entropynet/namecheap/irc.entropynet.net.crt' }
-      - { src: '/etc/ssl/localcerts/namecheap/entropynet.net-2019/irc.entropynet.net.key', dest: '/home/ircd/ssl/entropynet/namecheap/irc.entropynet.net.key' }
+      - { src: "/etc/ssl/localcerts/namecheap/entropynet.net-2019/irc.entropynet.net.crt", dest: "/home/ircd/ssl/entropynet/namecheap/irc.entropynet.net.crt" }
+      - { src: "/etc/ssl/localcerts/namecheap/entropynet.net-2019/irc.entropynet.net.key", dest: "/home/ircd/ssl/entropynet/namecheap/irc.entropynet.net.key" }
   handlers:
     - name: rehash ircds
       shell: pkill -HUP -F ~/ircd/etc/ircd.pid
