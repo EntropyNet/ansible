@@ -3,16 +3,15 @@
   user: ircd
   gather_facts: no
   tasks:
-  - name: Copy SSL files to correct directory on ircd nodes
+  - name: Copy SSL certificate to correct directory on ircd nodes
     copy:
-      src: "{{ item.src }}"
-      dest: "{{ item.dest }}"
+      src: '/etc/ssl/localcerts/namecheap/entropynet.net-2019/irc.entropynet.net.crt'
+      dest: '/home/ircd/ssl/entropynet/namecheap/irc.entropynet.net.crt'
       backup: yes
-      notify:
-      - rehash ircds
-    loop:
-      - { src: "/etc/ssl/localcerts/namecheap/entropynet.net-2019/irc.entropynet.net.crt", dest: "/home/ircd/ssl/entropynet/namecheap/irc.entropynet.net.crt" }
-      - { src: "/etc/ssl/localcerts/namecheap/entropynet.net-2019/irc.entropynet.net.key", dest: "/home/ircd/ssl/entropynet/namecheap/irc.entropynet.net.key" }
-  handlers:
-    - name: rehash ircds
-      shell: pkill -HUP -F ~/ircd/etc/ircd.pid
+  - name: Copy SSL key to correct directory on ircd nodes
+    copy:
+      src: '/etc/ssl/localcerts/namecheap/entropynet.net-2019/irc.entropynet.net.key'
+      dest: '/home/ircd/ssl/entropynet/namecheap/irc.entropynet.net.key'
+      backup: yes
+  - name: Rehash ircdnodes
+    shell: pkill -HUP -F ~/ircd/etc/ircd.pid
