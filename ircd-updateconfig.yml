@@ -9,5 +9,5 @@
     - rehash ircds
   handlers:
     - name: rehash ircds
-      shell: pkill -HUP -F ~/ircd/etc/ircd.pid
+      shell: /home/ircd/unrealircd/unrealircd rehash
 

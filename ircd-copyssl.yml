@@ -14,4 +14,4 @@
       dest: '/home/ircd/ssl/entropynet/namecheap/irc.entropynet.net.key'
       backup: yes
   - name: Rehash ircdnodes
-    shell: pkill -HUP -F ~/ircd/etc/ircd.pid
+    shell: /home/ircd/unrealircd/unrealircd reloadtls
